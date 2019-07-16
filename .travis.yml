@@ -1,0 +1,23 @@
+language: node_js
+node_js: 
+  - "stable"
+
+env:
+  global:
+    - TEST_DATABASE_URL="mongodb://127.0.0.1:27017/test_db"
+    - PORT=3000
+    - APP_KEY="XJGDJHIOWLKJIWJKIWLKJEDOUJNAOLJDSIKGDIKSJDIJ"
+    - NODE_ENV=production
+
+services:
+  - mongodb
+install:
+  - npm install
+cache:
+  directories:
+    - "node_modules"
+script:
+  - npm run test-with-coverage
+
+after_success:
+  - npm run coveralls
