@@ -12,6 +12,7 @@ env:
 services:
   - mongodb
 install:
+  - rm -rf node_modules
   - npm install
 cache:
   directories:
