@@ -1,4 +1,3 @@
-const assert = require('assert')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const server = require('./../server')
@@ -7,12 +6,7 @@ chai.should()
 chai.use(chaiHttp)
 
 // eslint-disable-next-line no-undef
-describe('Basic Mocha test', () => {
-
-    // eslint-disable-next-line no-undef
-    it('Should Test for length of string', () => {
-        assert.equal('Hello'.length, 5)
-    })
+describe('Test users', () => {
 
     // eslint-disable-next-line no-undef
     it('Should fetch users', (done) => {

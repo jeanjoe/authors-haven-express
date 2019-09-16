@@ -8,7 +8,7 @@ exports.follow = async (req, res) => {
     const authUser = req.authUser
     const followingId = req.body.follow_id
     try {
-        const user = await User.findById({ '_id': { $ne: followingId } })
+        const user = await User.findOne({ '_id': followingId })
         if (user === null) throw ({ message: 'Unable to find this User account', statusCode: 404 })
         const followed = await Follower.findOne({ follower: authUser._id, following: followingId })
         if (followed) throw ({ message: 'You are already following this user', statusCode: 400 })

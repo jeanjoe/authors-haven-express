@@ -1,10 +1,7 @@
-const errorHandler = (err, req, res) => {
-//   if (res.headersSent) {
-//     return next(err)
-//   }
-  res.status(500)
-  res.json({ error: err })
-  console.log(err)
+const errorHandler = (err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err)
+  }
 }
 
 module.exports = errorHandler

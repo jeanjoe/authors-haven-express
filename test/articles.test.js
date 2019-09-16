@@ -32,7 +32,7 @@ const updateArticle = {
 const invalidToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImFjY291bnRfdHlwZSI6ImF1dGhvciIsIl9pZCI6IjVkMzZmZWRhODFjNzI4MDUyNzE4Y2VkOCIsInVzZXJuYW1lIjoiTWFuemVkZSIsImVtYWlsIjoibWFuemVkZUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDE5LTA3LTIzVDEyOjM0OjM0LjQxOVoiLCJ1cGRhdGVkQXQiOiIyMDE5LTA3LTIzVDEyOjM0OjM0LjQxOVoiLCJfX3YiOjB9LCJpYXQiOjE1NjQ0OTM3ODYsImV4cCI6MTU2NDQ5NDA4Nn0.BatEoBSaX7Wb4agzddMsiMVZY6bZ0jXDb0kXjmSSs-Q'
 
 // eslint-disable-next-line no-undef
-describe('Basic Mocha test', () => {
+describe('Test Articles', () => {
 
     // eslint-disable-next-line no-undef
     before(() => {
@@ -120,7 +120,6 @@ describe('Basic Mocha test', () => {
             chai.request(server).post('/api/auth/login').send(userLogin).end((err, res) => {
                 const token = res.body.token
                 chai.request(server).post('/api/articles').send(article).set('Authorization', `Bearer ${token}`).end((err, res) => {
-                    console.log('Article ID', res.body.article._id)
                     chai.request(server).get('/api/articles/' + res.body.article._id).end((err, res) => {
                         res.should.have.status(200)
                         res.body.should.have.property('message').eql('Article retrieved successfully')

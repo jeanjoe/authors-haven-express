@@ -21,7 +21,7 @@ const wrongLogin = {
 }
 
 // eslint-disable-next-line no-undef
-describe('Basic Mocha test', () => {
+describe('Test User Authentication', () => {
 
     // eslint-disable-next-line no-undef
     before(() => {
