@@ -24,6 +24,6 @@ app.use(express.json());
 app.use('/api', Router)
 app.use(errorHandler)
 
-app.listen(port, () => console.log('Authors Haven Running on:', port))
+app.listen(port)
 
 module.exports = app
